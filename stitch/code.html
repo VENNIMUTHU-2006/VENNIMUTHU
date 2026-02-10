@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Dashboard Overview - Lab Inventory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                    "primary": "#136dec",
+                    "background-light": "#f6f7f8",
+                    "background-dark": "#101822",
+                    "sidebar-active": "#e8f1fd", // Light blue for active sidebar items
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                boxShadow: {
+                    'soft': '0 4px 20px -2px rgba(19, 109, 236, 0.08)',
+                    'card': '0 2px 8px -1px rgba(0, 0, 0, 0.05)',
+                }
+            },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Custom scrollbar for cleanliness */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .chart-bar {
+            transition: height 0.5s ease-out;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display min-h-screen relative overflow-hidden flex flex-col">
+<!-- Mobile Header -->
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 py-3 sticky top-0 z-30 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-3">
+<button class="p-2 -ml-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300">
+<span class="material-icons-round">menu</span>
+</button>
+<div class="flex flex-col">
+<h1 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">Lab Admin</h1>
+<span class="text-xs text-slate-500 dark:text-slate-400">Digital Inventory System</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="relative p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300">
+<span class="material-icons-round">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border border-white dark:border-slate-900"></span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary/10 overflow-hidden border border-slate-200 dark:border-slate-700">
+<img alt="Profile Avatar" class="w-full h-full object-cover" data-alt="Professional headshot of a lab administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA62q9n-g0SvEjGUPMFLHGReAw_49dkEoAs5Tnz68zZFkw3TlogXf0J5VpueU2ysC-L4E0WghuaBZewrQWSy49ksms2PoC-bp_OK_9hOei_quzgVVWLDwAOXQwkkuBJTJ_LRBgpOEDjT6DayVkZ3aSoRvZxrcOvj9YU5Qsp0K4f-eexbIrXDrWvO83KHjLMVeniXWuYfDdHq2Y2jP1mO5K2yaiLIIl3hPFpJA9qcL1DFvY5SgEaTEwMlSxtfo0Ux1Z8RCwJLt7_Z59U"/>
+</div>
+</div>
+</header>
+<!-- Main Content Scroll Area -->
+<main class="flex-1 overflow-y-auto pb-24">
+<!-- Welcome Section -->
+<div class="px-4 py-4">
+<div class="flex justify-between items-end mb-4">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Overview</h2>
+<span class="text-xs font-medium text-slate-400 bg-white dark:bg-slate-800 px-2 py-1 rounded border border-slate-100 dark:border-slate-700">Today, Oct 24</span>
+</div>
+<!-- Metric Cards Grid -->
+<div class="grid grid-cols-2 gap-3 mb-6">
+<!-- Total Items -->
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-card flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-icons-round text-xl">inventory_2</span>
+</div>
+</div>
+<div>
+<span class="block text-2xl font-bold text-slate-900 dark:text-white">1,240</span>
+<span class="text-xs text-slate-500 font-medium">Total Items</span>
+</div>
+</div>
+<!-- Available -->
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-card flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg text-emerald-600 dark:text-emerald-400">
+<span class="material-icons-round text-xl">check_circle</span>
+</div>
+<span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">+12%</span>
+</div>
+<div>
+<span class="block text-2xl font-bold text-slate-900 dark:text-white">850</span>
+<span class="text-xs text-slate-500 font-medium">Available</span>
+</div>
+</div>
+<!-- In-Use -->
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-card flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-amber-50 dark:bg-amber-900/20 rounded-lg text-amber-600 dark:text-amber-400">
+<span class="material-icons-round text-xl">timelapse</span>
+</div>
+</div>
+<div>
+<span class="block text-2xl font-bold text-slate-900 dark:text-white">350</span>
+<span class="text-xs text-slate-500 font-medium">In-Use</span>
+</div>
+</div>
+<!-- Out of Stock (Alert) -->
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-red-100 dark:border-red-900/30 shadow-card flex flex-col justify-between h-32 relative overflow-hidden group">
+<div class="absolute right-0 top-0 w-16 h-16 bg-red-50 dark:bg-red-900/10 rounded-bl-full -mr-2 -mt-2 transition-transform group-hover:scale-110"></div>
+<div class="flex justify-between items-start relative z-10">
+<div class="p-2 bg-red-50 dark:bg-red-900/20 rounded-lg text-red-600 dark:text-red-400">
+<span class="material-icons-round text-xl">error_outline</span>
+</div>
+</div>
+<div class="relative z-10">
+<span class="block text-2xl font-bold text-red-600 dark:text-red-400">40</span>
+<span class="text-xs text-red-600/80 dark:text-red-400/80 font-medium">Out of Stock</span>
+</div>
+</div>
+</div>
+<!-- Chart Section -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-card mb-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-sm font-semibold text-slate-900 dark:text-white">Stock Distribution</h3>
+<button class="text-primary text-xs font-medium flex items-center">
+                        View Report <span class="material-icons-round text-sm ml-0.5">chevron_right</span>
+</button>
+</div>
+<div class="flex items-end justify-between h-32 gap-4 px-2">
+<!-- Bar 1: Sensors -->
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-primary/10 dark:bg-primary/20 rounded-t-lg relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary transition-all duration-700 ease-out group-hover:opacity-90 rounded-t-lg" style="height: 65%;"></div>
+</div>
+<span class="mt-2 text-[10px] uppercase font-semibold text-slate-400 tracking-wider">Sensors</span>
+</div>
+<!-- Bar 2: Motors -->
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-primary/10 dark:bg-primary/20 rounded-t-lg relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/80 transition-all duration-700 ease-out group-hover:opacity-90 rounded-t-lg" style="height: 45%;"></div>
+</div>
+<span class="mt-2 text-[10px] uppercase font-semibold text-slate-400 tracking-wider">Motors</span>
+</div>
+<!-- Bar 3: ICs -->
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-primary/10 dark:bg-primary/20 rounded-t-lg relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/60 transition-all duration-700 ease-out group-hover:opacity-90 rounded-t-lg" style="height: 85%;"></div>
+</div>
+<span class="mt-2 text-[10px] uppercase font-semibold text-slate-400 tracking-wider">ICs</span>
+</div>
+<!-- Bar 4: Tools -->
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-primary/10 dark:bg-primary/20 rounded-t-lg relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/40 transition-all duration-700 ease-out group-hover:opacity-90 rounded-t-lg" style="height: 30%;"></div>
+</div>
+<span class="mt-2 text-[10px] uppercase font-semibold text-slate-400 tracking-wider">Tools</span>
+</div>
+</div>
+</div>
+<!-- Recent Activity List -->
+<div class="mb-4">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-sm font-semibold text-slate-900 dark:text-white">Recent Activity</h3>
+<a class="text-primary text-xs font-medium" href="#">See All</a>
+</div>
+<div class="space-y-3">
+<!-- Item 1 -->
+<div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-icons-round text-lg">arrow_upward</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate">
+<span class="font-bold">John Doe</span> borrowed <span class="text-slate-600 dark:text-slate-300">Arduino Uno</span>
+</p>
+<p class="text-xs text-slate-400 mt-0.5">Student ID: 202401 • 2m ago</p>
+</div>
+<div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+</div>
+<!-- Item 2 -->
+<div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center text-emerald-600 flex-shrink-0">
+<span class="material-icons-round text-lg">arrow_downward</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate">
+<span class="font-bold">Jane Smith</span> returned <span class="text-slate-600 dark:text-slate-300">Servo Motor</span>
+</p>
+<p class="text-xs text-slate-400 mt-0.5">Student ID: 202455 • 15m ago</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 flex-shrink-0">
+<span class="material-icons-round text-lg">add_box</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate">
+<span class="font-bold">Lab Restock</span>: 50 Resistors added
+                            </p>
+<p class="text-xs text-slate-400 mt-0.5">Admin: Mike R. • 1h ago</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm flex items-center gap-3 opacity-60">
+<div class="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-icons-round text-lg">arrow_upward</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate">
+<span class="font-bold">Alex Chen</span> borrowed <span class="text-slate-600 dark:text-slate-300">Multimeter</span>
+</p>
+<p class="text-xs text-slate-400 mt-0.5">Student ID: 202399 • 2h ago</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (iOS style) -->
+<nav class="fixed bottom-0 w-full bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pb-safe pt-2 px-6 z-40 shadow-[0_-4px_20px_-5px_rgba(0,0,0,0.1)]">
+<div class="flex justify-between items-center pb-5 pt-2">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons-round">dashboard</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+<span class="material-icons-round">qr_code_scanner</span>
+<span class="text-[10px] font-medium">Scan</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+<span class="material-icons-round">inventory</span>
+<span class="text-[10px] font-medium">Items</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+<span class="material-icons-round">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+</nav>
+<!-- Floating Action Button (Optional for quick add) -->
+<button class="fixed bottom-24 right-4 w-14 h-14 bg-primary text-white rounded-full shadow-lg shadow-primary/30 flex items-center justify-center transition-transform hover:scale-105 active:scale-95 z-40">
+<span class="material-icons-round text-2xl">add</span>
+</button>
+</body></html>
